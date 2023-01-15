@@ -1,8 +1,9 @@
 const form = document.querySelector("form");
+let outputs = [];
 form.addEventListener("submit", e => {
   e.preventDefault();
   const name = form.name.value;
-  const number = form.number.value;
+  const reps = form.reps.value;
   const numCheckboxes = form.numCheckboxes.value;
   // create the checkboxes 
   const newDiv = document.createElement("div");
@@ -13,8 +14,15 @@ form.addEventListener("submit", e => {
     checkbox.name = `checkbox${i}`;
     checkboxContainer.appendChild(checkbox);
   }
-  newDiv.innerHTML = `<div>Name: ${name}</div> <div>Reps: ${number}</div>`;
+  newDiv.innerHTML = `<div>Name: ${name}</div> <div>Reps: ${reps}</div>`;
   newDiv.appendChild(checkboxContainer);
   const output = document.getElementById("output");
   output.appendChild(newDiv);
+  outputs.push({ name, reps, numCheckboxes });
+});
+
+const archiveButton = document.getElementById("archive-button");
+archiveButton.addEventListener("click", () => {
+  sessionStorage.setItem("outputs", JSON.stringify(outputs));
+  window.location.href = "output.html";
 });

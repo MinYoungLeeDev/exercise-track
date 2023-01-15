@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Outputs</title>
+</head>
+<body>
+  <div id="output-data"></div>
+
+  <script>
+    const outputData = JSON.parse(sessionStorage.getItem("outputData"));
+    const outputDataDiv = document.getElementById("output-data");
+    outputDataDiv.innerHTML = `
+      <p>Name: ${outputData.name}</p>
+      <p>Reps: ${outputData.reps}</p>
+      <p>Checkboxes: ${outputData.checkboxes.join(", ")}</p>
+    `;
+  </script>
+</body>
+</html>
