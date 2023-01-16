@@ -7,13 +7,15 @@
   <div id="output-data"></div>
 
   <script>
-    const outputData = JSON.parse(sessionStorage.getItem("outputData"));
+    const outputs = JSON.parse(sessionStorage.getItem("outputs"));
     const outputDataDiv = document.getElementById("output-data");
-    outputDataDiv.innerHTML = `
-      <p>Name: ${outputData.name}</p>
-      <p>Reps: ${outputData.reps}</p>
-      <p>Checkboxes: ${outputData.checkboxes.join(", ")}</p>
-    `;
+    outputs.forEach(output => {
+        outputDataDiv.innerHTML += `
+          <p>Name: ${output.name}</p>
+          <p>Reps: ${output.reps}</p>
+          <p>Sets: ${output.numCheckboxes}</p>
+        `;
+    });
   </script>
 </body>
 </html>
