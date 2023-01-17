@@ -9,11 +9,15 @@
   <script>
     const outputs = JSON.parse(sessionStorage.getItem("outputs"));
     const outputDataDiv = document.getElementById("output-data");
-    outputs.forEach(output => {
+    outputs.forEach((output, index) => {
         outputDataDiv.innerHTML += `
-          <p>Name: ${output.name}</p>
-          <p>Reps: ${output.reps}</p>
-          <p>Sets: ${output.numCheckboxes}</p>
+          <div id="output-${index}">
+            <p>Name: ${output.name}</p>
+            <p>Reps: ${output.reps}</p>
+            <p>Checkboxes: ${output.numCheckboxes}</p>
+            <input type="checkbox" id="finished-${index}" checked>
+            <label for="finished-${index}">Finished</label>
+          </div>
         `;
     });
   </script>
