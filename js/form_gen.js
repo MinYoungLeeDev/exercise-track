@@ -5,6 +5,7 @@ form.addEventListener("submit", e => {
   const name = form.name.value;
   const reps = form.reps.value;
   const numCheckboxes = form.numCheckboxes.value;
+  
   // create the checkboxes 
   const newDiv = document.createElement("div");
   const checkboxContainer = document.createElement("div");
